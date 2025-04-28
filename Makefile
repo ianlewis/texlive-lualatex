@@ -121,6 +121,7 @@ license-headers: ## Update license headers.
 				'*.yaml' \
 				'*.yml' \
 				'Makefile' \
+				'Dockerfile' \
 				| while IFS='' read -r f; do [ -f "$${f}" ] && echo "$${f}" || true; done \
 		); \
 		name=$$(git config user.name); \

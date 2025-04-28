@@ -11,6 +11,9 @@
     // Add Aqua present to allow updating CLI tools.
     // https://aquaproj.github.io/docs/guides/renovate/
     "github>aquaproj/aqua-renovate-config#2.7.5",
+    // Update Dockerfile package versions.
+    // https://docs.renovatebot.com/presets-customManagers/#custommanagersdockerfileversions
+    "customManagers:dockerfileVersions",
   ],
 
   // Security alerts/updates happen more frequently.
