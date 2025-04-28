@@ -40,8 +40,9 @@ ENV TEXLIVE_SCIENCE_VERSION="${TEXLIVE_EXTRA_VERSION}"
 ENV TEXLIVE_LANG_ALL_VERSION="${TEXLIVE_LANG_VERSION}"
 
 # Install dependencies & all languages.
-RUN apt update && \
-    apt install -y \
+RUN apt-get update \
+    && apt-get install -y \
+        --no-install-recommends \
         texlive-latex-base=${TEXLIVE_LATEX_BASE_VERSION} \
         texlive-pictures=${TEXLIVE_PICTURES_VERSION} \
         texlive-luatex=${TEXLIVE_LUATEX_VERSION} \
@@ -55,6 +56,8 @@ RUN apt update && \
         texlive-publishers=${TEXLIVE_PUBLISHERS_VERSION} \
         texlive-humanities=${TEXLIVE_HUMANITIES_VERSION} \
         texlive-science=${TEXLIVE_SCIENCE_VERSION} \
-        texlive-lang-all=${TEXLIVE_LANG_ALL_VERSION}
+        texlive-lang-all=${TEXLIVE_LANG_ALL_VERSION} \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 CMD ["lualatex"]
